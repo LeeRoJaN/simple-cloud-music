@@ -17,8 +17,9 @@
     let id = song.id;//歌单id
 
     const res = await addOrRemoveTrackFromPlaylist({ op:'add', pid:id, tracks:$currentSongStore.id});
-    if (res.code === 200) {
-        Toast(`😂 添加成功~`, 2000);
+
+    if (res.status === 200) {
+        Toast(`添加成功~`, 2000);
       } else {
         Toast(`😂 添加失败啦~`, 2000);
       }

@@ -49,7 +49,10 @@ service.interceptors.response.use(
         );
         return res;
       } else {
-        Alert(response + '：' + response);
+        //特殊处理歌单添加歌曲接口
+        if(response.config.url != '/playlist/tracks'){
+            Alert(response + '：' + response);
+          }
         return res;
       }
     }
@@ -68,7 +71,7 @@ service.interceptors.response.use(
             : '未知错误')
       );
       return  error.response.data;
-     
+
       // Promise.then(error => {
       //   console.log(333, error);
       // });
