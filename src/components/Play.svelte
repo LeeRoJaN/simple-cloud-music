@@ -19,13 +19,18 @@
     PlayListFill,
     SortDesc,
     HeartPulseLine,
+    FolderAddLine,
   } from 'svelte-remixicon';
 
   import { Picker, Progress } from '../components/base';
   import Lyric from '../components/Lyric.svelte';
   import SongList from '../components/SongList.svelte';
+  import PlayListCreate from '../components/PlayListCreate.svelte';
 
   import { getSongUrl, personalFM, likeThisSong, getLyric, fmTrash } from '../api/song';
+
+  import { userPlaylist } from '../api/user';
+  import { userInfoStore } from '../store/user';
 
   import {
     playStatusStore,
@@ -145,6 +150,14 @@
       getSongUrlFun($currentPlayListStore[$currentSongIndexStore - 1], 'pre');
     }
   }
+  //创建的歌单列表弹窗
+  function showCreatList(show){
+    if ($mainCoverTypeStore !== 'mySongList') {
+        getCreatList();
+    } else {
+      mainCoverTypeStore.set('cover');
+    }
+  }
   //获取歌单url
   async function getSongUrlFun(song, type, index) {
     const res = await getSongUrl(song.id);
@@ -226,6 +239,23 @@
       } else {
         likeLoading = false;
       }
+    } else {
+      Toast('当前未登录');
+    }
+  }
+  //获取创建的歌单列表
+  async function getCreatList() {
+    if ($isLoginStore) {
+
+    // const res = await userPlaylist({ uid: $userInfoStore.account.id });
+    const res = await userPlaylist({ uid: '30930111' });
+      console.log(333, res);
+      if (res.code === 200) {
+        const list = res.playlist;
+
+        localStorage.setItem('mySongList', JSON.stringify(list));
+      }
+      mainCoverTypeStore.set('mySongList')
     } else {
       Toast('当前未登录');
     }
@@ -455,6 +485,10 @@
         <div class="song-list-box" bind:this={playListDom}>
           <SongList songList={$currentPlayListStore} />
         </div>
+      {:else if $mainCoverTypeStore === 'mySongList'}
+        <div class="song-list-box" on:click={showCreatList}>
+          <PlayListCreate />
+        </div>
       {/if}
     </div>
     <div class="control-box">
@@ -562,14 +596,22 @@
                 <embed width="24" height="24" src="./images/Ripple.svg" type="image/svg+xml" />
               </span>
             {:else}
-              <span style="color:{isLikeCurrentSong ? 'var(--primary-text-color)' : '#fff'}">
+            <span>
                 {#if isLikeCurrentSong}
-                  <Heart2Fill size="20" style="vertical-align: middle" />
+                    <Heart2Fill size="20" style="vertical-align: middle" />
                 {:else}
-                  <Heart2Line size="20" style="vertical-align: middle" />
+                    <Heart2Line size="20" style="vertical-align: middle" />
                 {/if}
-              </span>
+            </span>
             {/if}
+          </div>
+        {/if}
+        {#if $isLoginStore}
+          <!-- 收藏到指定歌单 -->
+          <div class="tool-item love" on:click={showCreatList} bind:this={loveDom}>
+              <span>
+                <FolderAddLine size="20" style="vertical-align: middle" />
+              </span>
           </div>
         {/if}
         {#if !$isFMPlayStore}
