@@ -6,6 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import replace from 'rollup-plugin-replace';
 import md from 'rollup-plugin-md';
 import fs from 'fs';
+import json from 'rollup-plugin-json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -48,6 +49,7 @@ export default {
     // entryFileNames: production ? `bundle?+_[hash].js` : "bundle.js",
   },
   plugins: [
+    json(),
     svelte({
       // enable run-time checks when not in production
       dev: !production,
