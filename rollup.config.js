@@ -17,11 +17,11 @@ function insertHashToIndex() {
       let indexHtml = fs.readFileSync(`html/index.html`, 'utf8');
       // let swJs = fs.readFileSync(`html/service-worker.js`, "utf8");
       indexHtml = indexHtml
-        .replace(/\/global\.css(\?_=[0-9\.]+)?/, '/global.css?_=' + stats.ctimeMs)
-        .replace(/\/normalize\.css(\?_=[0-9\.]+)?/, '/normalize.css?_=' + stats.ctimeMs)
-        .replace(/\/theme\.css(\?_=[0-9\.]+)?/, '/theme.css?_=' + stats.ctimeMs)
-        .replace(/\/build\/bundle\.css(\?_=[0-9\.]+)?/, '/build/bundle.css?_=' + stats.ctimeMs)
-        .replace(/\/build\/bundle\.js(\?_=[0-9\.]+)?/, '/build/bundle.js?_=' + stats.ctimeMs);
+        .replace(/\.\/global\.css(\?_=[0-9\.]+)?/, './global.css?_=' + stats.ctimeMs)
+        .replace(/\.\/normalize\.css(\?_=[0-9\.]+)?/, './normalize.css?_=' + stats.ctimeMs)
+        .replace(/\.\/theme\.css(\?_=[0-9\.]+)?/, './theme.css?_=' + stats.ctimeMs)
+        .replace(/\.\/build\/bundle\.css(\?_=[0-9\.]+)?/, './build/bundle.css?_=' + stats.ctimeMs)
+        .replace(/\.\/build\/bundle\.js(\?_=[0-9\.]+)?/, './build/bundle.js?_=' + stats.ctimeMs);
       // .replace(
       //   /\/service-worker\.js(\?_=[0-9\.]+)?/,
       //   "/service-worker.js?_=" + stats.ctimeMs

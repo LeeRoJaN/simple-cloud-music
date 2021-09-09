@@ -17,7 +17,7 @@
   $: hasMore = true;
   $: offset = 0;
   $: paginationHeight = 0;
-  
+
   onMount(() => {
     paginationHeight = document.documentElement.clientHeight || document.body.clientHeight - 120;
     getHotCommentFun(0);
@@ -90,12 +90,12 @@
                 {item.user.nickname}
                 {#if item.user.authStatus === 1}
                   <span class="vip">
-                    <img class="authStatus" src="/images/auth.png" alt="" />
+                    <img class="authStatus" src="./images/auth.png" alt="" />
                   </span>
                 {/if}
                 {#if item.user.vipType !== 0}
                   <span class="vip">
-                    <img class="cvip" src={`/images/vip/${item.user.vipRights.redVipLevel}.png`} alt="" />
+                    <img class="cvip" src={`./images/vip/${item.user.vipRights.redVipLevel}.png`} alt="" />
                   </span>
                 {/if}
               </div>

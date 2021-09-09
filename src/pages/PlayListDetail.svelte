@@ -30,12 +30,12 @@
   $: description = '';
   $: alphaNumber = 0; //NavBar透明度的值
   $: songList = [];
-  $: coverImgUrl = '/images/defaultCover.png';
+  $: coverImgUrl = './images/defaultCover.png';
   $: name = '歌单名称';
   $: updateTime = new Date().getTime();
   $: creator = {
     nickname: '创建者',
-    avatarUrl: '/images/defaultCover.png',
+    avatarUrl: './images/defaultCover.png',
     id: 0,
   };
   $: collect = false;

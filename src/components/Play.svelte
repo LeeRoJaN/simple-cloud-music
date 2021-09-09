@@ -524,7 +524,7 @@
         <div class="tool-item lyric" on:click={changeLyricFun} bind:this={lyricDom}>
           {#if lyricLoading}
             <span style="line-height: 30px;">
-              <embed width="24" height="24" src="/images/Ripple.svg" type="image/svg+xml" />
+              <embed width="24" height="24" src="./images/Ripple.svg" type="image/svg+xml" />
             </span>
           {:else if $mainCoverTypeStore === 'lyric'}
             <ChatQuoteFill size="20" style="vertical-align: middle" />
@@ -547,7 +547,7 @@
           <div class="tool-item list" on:click={handleFMNoLoveFun} bind:this={disloveDom}>
             {#if noLikeLoading}
               <span style="line-height: 30px;">
-                <embed width="24" height="24" src="/images/Ripple.svg" type="image/svg+xml" />
+                <embed width="24" height="24" src="./images/Ripple.svg" type="image/svg+xml" />
               </span>
             {:else}
               <DislikeLine size="20" style="vertical-align: middle" />
@@ -559,7 +559,7 @@
           <div class="tool-item love" on:click={handleLoveFun} bind:this={loveDom}>
             {#if likeLoading}
               <span style="line-height: 30px;">
-                <embed width="24" height="24" src="/images/Ripple.svg" type="image/svg+xml" />
+                <embed width="24" height="24" src="./images/Ripple.svg" type="image/svg+xml" />
               </span>
             {:else}
               <span style="color:{isLikeCurrentSong ? 'var(--primary-text-color)' : '#fff'}">

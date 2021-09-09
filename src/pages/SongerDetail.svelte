@@ -21,7 +21,7 @@
   import { getSongerDetail, getSongerTop, followAArtist } from '../api/songer';
   import { getSongUrl } from '../api/song';
 
-  $: coverImgUrl = '/images/defaultCover.png';
+  $: coverImgUrl = './images/defaultCover.png';
   $: name = '--';
   $: description = '暂无描述';
   $: mvSize = 0;

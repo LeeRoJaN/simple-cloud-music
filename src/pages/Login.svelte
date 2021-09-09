@@ -25,7 +25,7 @@
   let type = 'phone';
   $: phoneType = 'code'; //code--短信验证，pwd--密码验证
   let tiptext =
-    '您的密码会进行 MD5 加密后再传输到网易云 API。「简易云音乐」不会传输您的账号数据到任何非网易云音乐官方服务器。本工程源码已开源，可随时到 https://github.com/dufu1991/simple-cloud-music 查看验证逻辑。实在不放心建议使用短信验证或二维码登录。';
+    '您的密码会进行 MD5 加密后再传输到网易云 API。本程序不会传输您的账号数据到任何非网易云音乐官方服务器。实在不放心建议使用短信验证或二维码登录。';
   $: loginType = type === 'qr' ? '二维码登录' : type === 'phone' ? '手机号登录' : '邮箱登录';
   $: qrImg = '';
   $: qrTip = '请扫码';
@@ -244,12 +244,12 @@
   <div class="desc">请使用网易云音乐账号登录</div>
   <div class="lead">
     <div class="netease">
-      <img src="/images/nm_logo.png" alt="" />
+      <img src="./images/nm_logo.png" alt="" />
     </div>
     <div class="arr">
       <LinksLine />
     </div>
-    <div class="simple"><img src="/images/sm_logo.png" alt="" /></div>
+    <div class="simple"><img src="./images/sm_logo.png" alt="" /></div>
   </div>
   {#if type === 'qr'}
     <div class="qr">
@@ -284,7 +284,7 @@
     <div class="phone">
       <Input label="手机号" type="tel" maxlength="11" on:setInput={getPhone} />
       {#if phoneType === 'pwd'}
-        <Input label="密码" type="password" maxlength="40" bind:password_phone on:setInput={getpassword_phone} />
+        <Input label="密码" type="password" maxlength="50" bind:password_phone on:setInput={getpassword_phone} />
       {/if}
       {#if phoneType === 'code'}
         <Input
@@ -339,8 +339,8 @@
 
   {#if type === 'email'}
     <div class="email">
-      <Input label="邮箱" type="text" on:setInput={getEmail} />
-      <Input label="密码" type="password" maxlength="40" bind:password_email on:setInput={getpassword_email} />
+      <Input label="邮箱" type="text" maxlength="50" on:setInput={getEmail} />
+      <Input label="密码" type="password" maxlength="50" bind:password_email on:setInput={getpassword_email} />
       <div class="btn">
         <Button on:BtnClick={getClickEmail} type="primary">登录</Button>
       </div>

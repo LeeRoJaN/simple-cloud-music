@@ -288,7 +288,7 @@
             <div class="tag">
               {#if $userInfoStore.account.vipType !== 0}
                 <span class="vip">
-                  <img class="cvip" src="/images/vip/vip.png" alt="" />
+                  <img class="cvip" src="./images/vip/vip.png" alt="" />
                   <span class="vip-text">黑胶VIP</span>
                 </span>
               {:else}
@@ -333,7 +333,7 @@
               {/each}
             {:else}
               <span style="line-height: 100px;position: relative;left: 50%;margin-left: -50px;top:40px">
-                <embed width="100" height="100" src="/images/Ripple.svg" type="image/svg+xml" />
+                <embed width="100" height="100" src="./images/Ripple.svg" type="image/svg+xml" />
               </span>
             {/if}
           </div>
@@ -371,7 +371,7 @@
   {:else}
     <div class="noLogin">
       <div>
-        <img class="login-img" src="/images/login.png" alt="" />
+        <img class="login-img" src="./images/login.png" alt="" />
       </div>
       <div class="tip">账号信息需要登录</div>
       <div class="login-btn">

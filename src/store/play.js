@@ -13,7 +13,7 @@ export const currentSongStore = writable(
     : {
         name: '简易云音乐',
         al: {
-          picUrl: '/images/defaultCover.png',
+          picUrl: './images/defaultCover.png',
         },
         url: 'https://m8.music.126.net/20210907010112/541ee038536db12045e4a99d565becd8/ymusic/5614/195d/ad51/33fff191fffc2fd5da6c94d71e7777ef.mp3',
         ar: [{ name: '简易云音乐' }],
@@ -30,7 +30,7 @@ export const currentPlayListStore = writable([
     : {
         name: '简易云音乐',
         al: {
-          picUrl: '/images/defaultCover.png',
+          picUrl: './images/defaultCover.png',
         },
         url: 'https://m8.music.126.net/20210907010112/541ee038536db12045e4a99d565becd8/ymusic/5614/195d/ad51/33fff191fffc2fd5da6c94d71e7777ef.mp3',
         ar: [{ name: '简易云音乐' }],

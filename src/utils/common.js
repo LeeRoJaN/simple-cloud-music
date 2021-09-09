@@ -289,7 +289,7 @@ export function emojiToImg(text) {
 }
 function emojiToUrl(value) {
   if (value.substring(0, 2) === 'dx') {
-    return `/images/dd_and_xx/${value}.png`;
+    return `./images/dd_and_xx/${value}.png`;
   } else {
     return `https://s1.music.126.net/style/web2/emt/emoji_${value}.png`;
   }

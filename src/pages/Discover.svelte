@@ -269,7 +269,6 @@
         关于
       </Button>
     </div>
-    <div class="ba"><a href="https://beian.miit.gov.cn/" target="_blank">滇ICP备17004037号-3</a></div>
   {/if}
 </div>
 
